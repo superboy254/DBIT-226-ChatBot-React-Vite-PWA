@@ -2,8 +2,13 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { VitePWA } from "vite-plugin-pwa";
 import { generateSW } from "workbox-build";
+import path from "path";
+import { fileURLToPath } from "url";
 
 import { cachingStrategies } from "./cachingStrategies.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [
@@ -44,7 +49,8 @@ export default defineConfig({
     },
   },
   server: {
-    registerServiceWorker: true,
+    port: 3000,
+    hot: true,
     middleware: [
       (req, res, next) => {
         if (req.url.endsWith(".js") || req.url.endsWith(".css")) {
@@ -61,5 +67,10 @@ export default defineConfig({
         next();
       },
     ],
+  },
+  resolve: {
+    alias: {
+      "~bootstrap": path.resolve(__dirname, "node_modules/bootstrap"),
+    },
   },
 });
