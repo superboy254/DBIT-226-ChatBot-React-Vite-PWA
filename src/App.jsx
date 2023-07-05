@@ -14,6 +14,7 @@ const App = () => {
   return (
     <section>
       <HomePage />
+      <div className="chatbot-container mb-5 pb-5">
       <Row className="toggle-chatbot-row">
         <Col className="text-center">
           <Button className="toggle-chatbot-btn mb-5" onClick={handleToggleChatbot}>
@@ -26,6 +27,7 @@ const App = () => {
           <BashBot />
         </div>
       )}
+      </div>
     </section>
   );
 };

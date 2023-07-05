@@ -1,7 +1,8 @@
 const steps = [
   {
     id: "intro",
-    message: "Do you agree to the Terms and Conditions?",
+    message:
+      "Welcome to BASHBOT, our CRM Chatbot. Please read and agree to the Terms and Conditions to proceed.",
     trigger: "intro-user",
   },
   {
@@ -26,42 +27,98 @@ const steps = [
   },
   {
     id: "greet-user",
-    message: "Hi {previousValue}, nice to meet you!",
+    message: "Hi {previousValue}, how can I assist you today?",
     trigger: "user-query",
   },
   {
     id: "no-response",
     message:
-      "Sorry to hear that. You cannot proceed without agreeing to the Terms and Conditions.",
+      "Sorry, but you cannot proceed without agreeing to the Terms and Conditions.",
     end: true,
   },
   {
     id: "user-query",
-    message: "How can I assist you today?",
+    message: "Please select an option or let me know how I can help:",
     trigger: "user-options",
   },
   {
     id: "user-options",
     options: [
-      { value: "option1", label: "Option 1", trigger: "option1-response" },
-      { value: "option2", label: "Option 2", trigger: "option2-response" },
-      { value: "option3", label: "Option 3", trigger: "option3-response" },
+      {
+        value: "order-status",
+        label: "Check Order Status",
+        trigger: "order-status-response",
+      },
+      {
+        value: "billing-inquiry",
+        label: "Billing Inquiry",
+        trigger: "billing-inquiry-response",
+      },
+      {
+        value: "update-details",
+        label: "Update Personal Details",
+        trigger: "update-details-response",
+      },
     ],
   },
   {
-    id: "option1-response",
-    message: "You selected Option 1.",
-    end: true,
+    id: "order-status-response",
+    message: "To check your order status, please provide your order number.",
+    trigger: "order-number",
   },
   {
-    id: "option2-response",
-    message: "You selected Option 2.",
-    end: true,
+    id: "order-number",
+    user: true,
+    trigger: "order-status-result",
+    metadata: {
+      saveToSlot: true, // Saves the user's order number to a slot for future reference
+    },
   },
   {
-    id: "option3-response",
-    message: "You selected Option 3.",
-    end: true,
+    id: "order-status-result",
+    message:
+      "Your order with number {previousValue} is currently being processed and will be shipped soon.",
+    trigger: "user-query",
+  },
+  {
+    id: "billing-inquiry-response",
+    message:
+      "To assist you with your billing inquiry, please provide your account number.",
+    trigger: "account-number",
+  },
+  {
+    id: "account-number",
+    user: true,
+    trigger: "billing-inquiry-result",
+    metadata: {
+      saveToSlot: true, // Saves the user's account number to a slot for future reference
+    },
+  },
+  {
+    id: "billing-inquiry-result",
+    message:
+      "Based on the account number {previousValue}, your outstanding balance is $200.00. How else can I assist you?",
+    trigger: "user-query",
+  },
+  {
+    id: "update-details-response",
+    message:
+      "To update your personal details, please provide your email address.",
+    trigger: "email-address",
+  },
+  {
+    id: "email-address",
+    user: true,
+    trigger: "update-details-result",
+    metadata: {
+      saveToSlot: true, // Saves the user's email address to a slot for future reference
+    },
+  },
+  {
+    id: "update-details-result",
+    message:
+      "Your email address has been updated to {previousValue} successfully. If you have any other inquiries, feel free to ask.",
+    trigger: "user-query",
   },
 ];
 

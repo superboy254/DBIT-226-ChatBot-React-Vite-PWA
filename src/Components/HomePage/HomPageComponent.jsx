@@ -5,19 +5,24 @@ const Homepage = () => {
   return (
     <Container className="homepage">
       <Row>
-        <Col md={6} className="text-center">
-          <h1>Welcome to BASHBOT</h1>
-          <p>A Powerful Chatbot for Your Website</p>
-          <Button variant="primary" size="lg">
-            Get Started
-          </Button>
-        </Col>
-        <Col md={6} className="text-center">
+        <Col md={2} className="image-container w-25">
           <img
             src="https://www.linkpicture.com/q/ScreenShot-Tool-20230624163944-1.png"
             alt="BASHBOT"
             className="bashbot-image"
           />
+        </Col>
+
+        <Col md={6} className="text-center mt-5">
+          <h1>Welcome to BASHBOT</h1>
+          <p>A Powerful Chatbot for Your Website</p>
+        </Col>
+      </Row>
+      <Row className="mt-1 mb-5">
+        <Col md={15} className="text-center">
+          <Button variant="primary" size="lg">
+            Get Started
+          </Button>
         </Col>
       </Row>
       <Row className="features">
