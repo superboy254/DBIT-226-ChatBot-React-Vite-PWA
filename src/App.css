@@ -4,8 +4,7 @@ body{
 
 .bashbot {
   position: relative;
-  left: 40%;
-  right: 40%;
+  left: 35%;
 }
 
 .homepage-background {
@@ -41,6 +40,11 @@ body{
 }
 
 @media only screen and (max-width: 1000px) {
+
+  body{
+  overflow-x: hidden;
+}
+
   .bashbot {
     position: relative;
     left: 30%;
