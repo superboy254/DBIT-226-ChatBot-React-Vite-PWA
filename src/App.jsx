@@ -14,16 +14,16 @@ const App = () => {
   return (
     <section>
       <HomePage />
-      <div className="chatbot-container">
+      <div className="chatbot-container mt-5">
       <Row className="toggle-chatbot-row">
         <Col className="text-center">
-          <Button className="toggle-chatbot-btn mb-5" onClick={handleToggleChatbot}>
+          <Button className="toggle-chatbot-btn" onClick={handleToggleChatbot}>
             Toggle Chatbot
           </Button>
         </Col>
       </Row>
       {showChatbot && (
-        <div className="bashbot">
+        <div className="bashbot mt-5">
           <BashBot />
         </div>
       )}
