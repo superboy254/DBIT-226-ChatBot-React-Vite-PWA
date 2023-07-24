@@ -1,13 +1,16 @@
 import { Container, Row, Col, Button, Card } from "react-bootstrap";
 import { FaComments, FaBolt, FaHeadset } from "react-icons/fa";
+import Icon from "../../assets/images/icon-white.png";
 
 const Homepage = () => {
   return (
     <Container className="homepage">
-      <Row>
+    <div className="homepage-background"></div>
+    <div className="homepage-overlay"></div>
+      <Row className="header">
         <Col md={2} className="image-container w-25">
           <img
-            src="https://www.linkpicture.com/q/ScreenShot-Tool-20230624163944-1.png"
+            src={Icon}
             alt="BASHBOT"
             className="bashbot-image"
           />
@@ -18,7 +21,7 @@ const Homepage = () => {
           <p>A Powerful Chatbot for Your Website</p>
         </Col>
       </Row>
-      <Row className="mt-1 mb-5">
+      <Row className="mt-1 mb-5 header">
         <Col md={15} className="text-center">
           <Button variant="primary" size="lg">
             Get Started

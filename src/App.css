@@ -7,3 +7,36 @@ body{
   left: 40%;
   right: 40%;
 }
+
+.homepage-background {
+  background-image: url("https://cdn.leonardo.ai/users/9acc3781-4abb-47a8-aadc-52ec28e7a32b/generations/7f73866f-1cb9-4a31-ad1f-8accf8dbba8f/variations/Default_High_quality_UHD_strong_highlightscute_robot_typing_in_1_7f73866f-1cb9-4a31-ad1f-8accf8dbba8f_1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 150vh;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+}
+
+.homepage-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 150vh;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+}
+
+.header {
+  position: relative;
+  top: 10%;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.chatbot-container {
+  position: relative;
+  top: 25%;
+}
